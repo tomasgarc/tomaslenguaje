@@ -1,0 +1,43 @@
+catalog {
+    display: block;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+items {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+item {
+    display: table-row;
+}
+
+id, type, brand, model, specs {
+    display: table-cell;
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+
+id {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+type {
+    color: blue;
+}
+
+brand {
+    color: green;
+}
+
+model {
+    color: purple;
+}
+
+specs {
+    font-style: italic;
+}
