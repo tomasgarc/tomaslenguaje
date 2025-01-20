@@ -27,7 +27,7 @@ body {
 
 .buttons {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Cuatro columnas de igual tamaño */
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
 
@@ -48,7 +48,6 @@ body {
   background-color: #bbb;
 }
 
-/* Hacer que el botón de igual ocupe dos columnas */
 .buttons button:nth-child(16) {
   grid-column: 2;
 }
