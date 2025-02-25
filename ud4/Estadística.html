@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumatorio</title>
+    <script>
+
+"use strict";
+
+let gestor_vectores = {
+    vector_numeros: new Array(),
+    setDatos: function(vector) {
+        this.vector_numeros = vector;
+    },
+
+    getSumatorio: function() {
+        let suma = 0;
+        for (let pos in this.vector_numeros) {
+            suma += this.vector_numeros[pos];
+        }
+        return suma;
+    },
+
+    getProducto: function() {
+        let producto = 1;
+        for (let pos in this.vector_numeros) {
+            producto *= this.vector_numeros[pos];
+        }
+        return producto;
+    }
+};
+
+let vector_prueba = [5, 10, 8];
+gestor_vectores.setDatos(vector_prueba);
+
+let sumatorio = gestor_vectores.getSumatorio();
+let producto = gestor_vectores.getProducto();
+
+document.write("SUMATORIO: " + sumatorio);
+document.write("PRODUCTO: " + producto);
+
+    </script>
+</head>
+<body>
+</body>
+</html>
