@@ -1,15 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estadística</title>
+    <title>Control de Párrafos</title>
+    <style>
+        p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+    </style>
 </head>
 <body>
+
+    <div>
+        <button onclick="ocultarPares()">Ocultar pares</button>
+        <button onclick="ocultarImpares()">Ocultar impares</button>
+        <button onclick="mostrarPares()">Mostrar pares</button>
+        <button onclick="mostrarImpares()">Mostrar impares</button>
+    </div>
+
+    <div id="contenedor-parrafos">
+        <p id="parrafo1">Párrafo 1: LENGUAJE DE MARCAS</p>
+        <p id="parrafo2">Párrafo 2: ENTORNOS DE DESARROLLO</p>
+        <p id="parrafo3">Párrafo 3: SISTEMAS INFORMATICOS</p>
+        <p id="parrafo4">Párrafo 4: PROGRAMACION</p>
+    </div>
+
     <script>
+        function ocultarPares() {
+            for (let i = 2; i <= 4; i += 2) {
+                document.getElementById('parrafo' + i).style.display = 'none';
+            }
+        }
 
-        
+        function ocultarImpares() {
+            for (let i = 1; i <= 4; i += 2) {
+                document.getElementById('parrafo' + i).style.display = 'none';
+            }
+        }
 
+        function mostrarPares() {
+            for (let i = 2; i <= 4; i += 2) {
+                document.getElementById('parrafo' + i).style.display = 'block';
+            }
+        }
+
+        function mostrarImpares() {
+            for (let i = 1; i <= 4; i += 2) {
+                document.getElementById('parrafo' + i).style.display = 'block';
+            }
+        }
     </script>
+
 </body>
 </html>

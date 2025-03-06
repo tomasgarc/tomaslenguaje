@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar color al pasar el ratón</title>
+    <!-- Incluir JQuery desde CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #miCaja {
+            width: 300px;
+            height: 200px;
+            background-color: lightblue;
+            color: white;
+            text-align: center;
+            line-height: 200px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- El div que cambiará de color -->
+    <div id="miCaja">
+        Pasa el ratón por encima de mí
+    </div>
+
+    <script>
+        // Usamos JQuery para cambiar el color de la caja cuando el ratón pasa por encima
+        $(document).ready(function() {
+            $('#miCaja').hover(
+                // Función cuando el ratón entra
+                function() {
+                    $(this).css('background-color', 'orange');
+                },
+                // Función cuando el ratón sale
+                function() {
+                    $(this).css('background-color', 'lightblue');
+                }
+            );
+        });
+    </script>
+
+</body>
+</html>

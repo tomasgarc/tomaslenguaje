@@ -6,15 +6,27 @@
     <title>Sumatorio</title>
     <script>
 
-"use strict";
+"use strict"
+gestor_vectores = {
+    vector_numeros: [],
 
-let gestor_vectores = {
-    vector_numeros: new Array(),
-    setDatos: function(vector) {
+    setDatos: function (vector) {
         this.vector_numeros = vector;
     },
 
-    getSumatorio: function() {
+    // Método para calcular la media
+    getMedia: function () {
+        let suma = 0;
+        let media = 0;
+        for (let pos in this.vector_numeros) {
+            suma = suma + this.vector_numeros[pos];
+        }
+        media = suma / this.vector_numeros.length;
+        return media;
+    },
+
+    // Método para calcular el sumatorio
+    getSumatorio: function () {
         let suma = 0;
         for (let pos in this.vector_numeros) {
             suma += this.vector_numeros[pos];
@@ -22,23 +34,39 @@ let gestor_vectores = {
         return suma;
     },
 
-    getProducto: function() {
+    // Método para calcular el producto
+    getProducto: function () {
         let producto = 1;
         for (let pos in this.vector_numeros) {
             producto *= this.vector_numeros[pos];
         }
         return producto;
+    },
+
+    // Método para calcular la mediana
+    getMediana: function () {
+        this.vector_numeros.sort((a, b) => a - b); // Ordenar de menor a mayor
     }
 };
 
+// Definir el arreglo de números
 let vector_prueba = [5, 10, 8];
+
+// Establecer los números en el gestor
 gestor_vectores.setDatos(vector_prueba);
 
+// Calcular la media, sumatorio y producto
+let media = gestor_vectores.getMedia();
 let sumatorio = gestor_vectores.getSumatorio();
 let producto = gestor_vectores.getProducto();
 
-document.write("SUMATORIO: " + sumatorio);
-document.write("PRODUCTO: " + producto);
+// Mostrar los resultados en la página
+document.body.innerHTML = `
+    <p>La media es: ${media}</p>
+    <p>El sumatorio es: ${sumatorio}</p>
+    <p>El producto es: ${producto}</p>
+`;
+
 
     </script>
 </head>
