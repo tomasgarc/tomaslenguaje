@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+    <title>Oposiciones 2018</title>
+    <style>
+        p {
+            
+            font-size: 16px;
+            margin: 10px 0;
+            display: block;
+            
+        }
+    </style>
+    <script type="text/javascript">
+
+    function cambiar1() {
+            if(document.getElementById('contenido_1').style.display == 'block') {        
+                document.getElementById('contenido_1').style.display = 'none';
+                document.getElementById('enlace_1').textContent = 'Mostrar contenido';
+                } else {
+                    document.getElementById('contenido_1').style.display = 'block';
+                    document.getElementById('enlace_1').textContent = 'Ocultar contenido';
+                }
+            }
+
+    function cambiar2() {
+            if(document.getElementById('contenido_2').style.display == 'block') {        
+                document.getElementById('contenido_2').style.display = 'none';
+                document.getElementById('enlace_2').textContent = 'Mostrar contenido';
+                } else {
+                    document.getElementById('contenido_2').style.display = 'block';
+                    document.getElementById('enlace_2').textContent = 'Ocultar contenido';
+                }
+            }
+
+    function cambiar3() {
+            if(document.getElementById('contenido_3').style.display == 'block') {        
+                document.getElementById('contenido_3').style.display = 'none';
+                document.getElementById('enlace_3').textContent = 'Mostrar contenido';
+                } else {
+                    document.getElementById('contenido_3').style.display = 'block';
+                    document.getElementById('enlace_3').textContent = 'Ocultar contenido';
+                }
+            }
+
+    </script>
+</head>
+<body>
+    
+    <p id="contenido_1"> [1]
+        hola hola hola hola hola hola hola
+        hola hola hola hola hola hola hola
+        hola hola hola hola hola hola hola 
+    </p>
+    <a id="enlace_1" onclick="cambiar1()" href="#">Ocultar contenido</a>
+
+<br/>
+
+    <p id="contenido_2"> [2]
+        hola hola hola hola hola hola hola
+        hola hola hola hola hola hola hola
+        hola hola hola hola hola hola hola 
+    </p>
+    <a id="enlace_2" onclick="cambiar2()" href="#">Ocultar contenido</a>
+
+<br/>
+
+    <p id="contenido_3"> [3]
+        hola hola hola hola hola hola hola
+        hola hola hola hola hola hola hola
+        hola hola hola hola hola hola hola 
+    </p>
+    <a id="enlace_3" onclick="cambiar3()" href="#">Ocultar contenido</a>
+
+</body>
+</html>
