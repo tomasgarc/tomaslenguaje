@@ -1,0 +1,8 @@
+{"item":"Ejemplo de Feed RSS", "link": "https://www.ejemplo.com/rss", "descripcion":"Este es un ejemplo de un feed RSS" }
+
+{"items":[
+
+    {"item":"Articulo 1", "link": "https://www.ejemplo.com/articulo1", "descripcion":"Este es el primer articulo del feed" },
+    {"item":"Articulo 2", "link": "https://www.ejemplo.com/articulo2", "descripcion":"Este es el segundo articulo del feed" }
+
+    ]}
