@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Matriculación Flexible</title>
+</head>
+<body>
+  <h2>Matriculación Flexible</h2>
+
+  <form id="formulario">
+    <h3>Selecciona las asignaturas:</h3>
+    <label><input type="checkbox" name="asignatura" value="Matemáticas I"> Matemáticas I</label><br>
+    <label><input type="checkbox" name="asignatura" value="Historia"> Historia</label><br>
+    <label><input type="checkbox" name="asignatura" value="Matemáticas II"> Matemáticas II</label><br>
+    <label><input type="checkbox" name="asignatura" value="Física"> Física</label><br><br>
+
+    <label>Horas semanales:
+      <input type="number" id="horas" min="1" value="1">
+    </label><br><br>
+
+    <label><input type="checkbox" id="antiguoAlumno"> Soy antiguo alumno</label><br>
+    <label><input type="checkbox" id="beca"> Tengo beca</label><br><br>
+
+    <button type="button" onclick="calcularPrecio()">Calcular Precio</button>
+  </form>
+
+  <div id="resultado" style="margin-top: 20px; font-weight: bold;"></div>
+
+  <script>
+
+function calcularPrecio() {
+//cogemos los valores de los checkboxes y los campos de texto de arriba.
+  const asignaturasSeleccionadas = document.querySelectorAll('input[name="asignatura"]:checked');
+  const horas = parseInt(document.getElementById("horas").value);
+  const esAntiguoAlumno = document.getElementById("antiguoAlumno").checked;
+  const tieneBeca = document.getElementById("beca").checked;
+  const resultadoDiv = document.getElementById("resultado");
+
+  const seleccion = Array.from(asignaturasSeleccionadas).map(a => a.value);
+
+// Validación: No se puede elegir Matemáticas II sin Matemáticas I
+  if (seleccion.includes("Matemáticas II") && !seleccion.includes("Matemáticas I")) {
+    resultadoDiv.innerHTML = "<span style='color:red;'>Error: No puedes elegir 'Matemáticas II' sin haber elegido 'Matemáticas I'.</span>";
+    return;
+  }
+
+// Precio base: horas semanales * 20€ * número de asignaturas
+  const precioBase = horas * 20 * seleccion.length;
+
+// Aplicar descuento si es antiguo alumno
+  let precioConDescuento = esAntiguoAlumno ? precioBase * 0.65 : precioBase;
+
+// Calcular beca si está marcada
+  let precioConBeca = tieneBeca ? precioConDescuento * 0.20 : null;
+
+// Mostrar precios
+  let mensaje = `Precio total mensual: ${precioConDescuento.toFixed(2)} €`;
+  if (tieneBeca) {
+    mensaje += `<br>Precio con beca: ${precioConBeca.toFixed(2)} €`;
+  }
+
+  resultadoDiv.innerHTML = mensaje;
+}
+
+  </script>
+</body>
+</html>
