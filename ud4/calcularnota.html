@@ -47,22 +47,22 @@
       const resultadoDiv = document.getElementById("resultado");
 
       if (isNaN(aciertos) || aciertos < 0 || aciertos > totalPreguntas) {
-        resultadoDiv.textContent = "❌ Aciertos inválidos. Deben estar entre 0 y 27.";
+        resultadoDiv.textContent = "Aciertos inválidos. Deben estar entre 0 y 27.";
         return;
       }
 
       if (![0, 0.1, 0.2, 0.3].includes(penalizacion)) {
-        resultadoDiv.textContent = "❌ Penalización inválida. Usa 0, 0.1, 0.2 o 0.3.";
+        resultadoDiv.textContent = "Penalización inválida. Usa 0, 0.1, 0.2 o 0.3.";
         return;
       }
 
       const fallos = totalPreguntas - aciertos;
       let notaReal = ((aciertos - (fallos * penalizacion)) / totalPreguntas) * 10;
-      notaReal = Math.max(0, notaReal.toFixed(2)); // Que no baje de 0
+      notaReal = Math.max(0, notaReal.toFixed(2));
 
       resultadoDiv.textContent =
         `Aciertos: ${aciertos} | Fallos: ${fallos} | ` +
-        ` Nota real: ${notaReal}/10`;
+        `Nota real: ${notaReal}/10`;
     }
   </script>
 </body>
