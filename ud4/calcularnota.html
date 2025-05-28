@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora de Nota Real</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      margin-top: 5px;
+      padding: 5px;
+      width: 100px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 15px;
+    }
+    .resultado {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculadora de Nota Real</h1>
+
+  <label for="aciertos">Aciertos (0-27):</label>
+  <input type="number" id="aciertos" min="0" max="27">
+
+  <label for="penalizacion">Penalización por fallo (0, 0.1, 0.2 o 0.3):</label>
+  <input type="number" id="penalizacion" step="0.1" min="0" max="0.3">
+
+  <button onclick="calcularNotaReal()">Calcular Nota</button>
+
+  <div class="resultado" id="resultado"></div>
+
+  <script>
+    function calcularNotaReal() {
+      const totalPreguntas = 27;
+      const aciertos = parseInt(document.getElementById("aciertos").value);
+      const penalizacion = parseFloat(document.getElementById("penalizacion").value);
+      const resultadoDiv = document.getElementById("resultado");
+
+      if (isNaN(aciertos) || aciertos < 0 || aciertos > totalPreguntas) {
+        resultadoDiv.textContent = "❌ Aciertos inválidos. Deben estar entre 0 y 27.";
+        return;
+      }
+
+      if (![0, 0.1, 0.2, 0.3].includes(penalizacion)) {
+        resultadoDiv.textContent = "❌ Penalización inválida. Usa 0, 0.1, 0.2 o 0.3.";
+        return;
+      }
+
+      const fallos = totalPreguntas - aciertos;
+      let notaReal = ((aciertos - (fallos * penalizacion)) / totalPreguntas) * 10;
+      notaReal = Math.max(0, notaReal.toFixed(2)); // Que no baje de 0
+
+      resultadoDiv.textContent =
+        `Aciertos: ${aciertos} | Fallos: ${fallos} | ` +
+        ` Nota real: ${notaReal}/10`;
+    }
+  </script>
+</body>
+</html>

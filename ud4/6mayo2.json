@@ -7,8 +7,8 @@
         "department": "Technology",
         "salary": 75000,
         "location": {
-          "city": "Madrid",
-          "country": "Spain"
+        "city": "Madrid",
+        "country": "Spain"
         }
       },
       {
@@ -18,8 +18,8 @@
         "department": "Design",
         "salary": 60000,
         "location": {
-          "city": "Paris",
-          "country": "France"
+        "city": "Paris",
+        "country": "France"
         }
       },
       {
@@ -29,8 +29,8 @@
         "department": "Project Management",
         "salary": 90000,
         "location": {
-          "city": "Berlin",
-          "country": "Germany"
+        "city": "Berlin",
+        "country": "Germany"
         }
       }
     ]
